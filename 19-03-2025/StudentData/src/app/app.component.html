@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Students Websites</title>
+</head>
+<body style="padding: 30px;">
+  <h1> Students :</h1>
+  <h2>ADD :</h2>
+  <form id="form">
+    Id :<input type="text"  #id name="id" placeholder="Enter the ID" class="form-control"><br>
+    Name :<input type="text"  #name name="name" placeholder="Enter the name"class="form-control"><br>
+    Section <input type="text"  #section name="section" placeholder="Enter the Branch"class="form-control"><br>
+    <button (click)="addStudent(id,name,section)"class="btn btn-primary">Submit</button>
+  </form>
+  <br>
+    <table border="2px solid black" class="table">
+    <tr>
+      <td>ID</td>
+      <td>Name</td>
+      <td>Branch</td>
+      <td colspan="2">Action</td>
+    </tr>
+    <tr *ngFor="let student of students">
+      <td>{{student.id}}</td>
+      <td>{{student.name}}</td>
+      <td>{{student.section}}</td>
+      <td><button class="btn btn-danger" (click)="deleteStudent(student.id)">Delete</button></td>
+      <td><button class="btn btn-info" (click)="editStudent(student)">EDIT</button></td>
+    </tr>
+  </table>
+ <div *ngIf="selectedStudent">
+  <form>
+    <h2>Edit</h2>
+    Id:<input type="text"  #id name="id" placeholder="Enter the ID" [(ngModel)]="selectedStudent.id"class="form-control"  disabled><br>
+    Name:<input type="text"  #name name="name" placeholder="Enter the name"[(ngModel)]="selectedStudent.name"class="form-control"><br>
+    Section :<input type="text"  #section name="section" placeholder="Enter the Branch"[(ngModel)]="selectedStudent.section"class="form-control"><br>
+    <button (click)="update(selectedStudent)"class="btn btn-primary">Submit</button>
+  </form>
+ </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
