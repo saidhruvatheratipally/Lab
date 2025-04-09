@@ -2,7 +2,7 @@ import React from "react";
 class App extends React.Component{
   constructor(){
     super();
-    this.state={count:1};
+    this.state={count:0};
     console.log("Initialization");
   }
   componentWillMount(){
@@ -29,7 +29,7 @@ class App extends React.Component{
       <>
         <center>
           <h1>Count:{this.state.count}</h1>
-          <button onClick={this.increment}>Increment</button>
+          <button type="button" class="d-grid gap-2 col-2 mx-auto btn btn-outline-danger" onClick={this.increment}>Increment</button>
         </center>
       </>
     )
